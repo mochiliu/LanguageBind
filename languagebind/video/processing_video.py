@@ -82,7 +82,7 @@ def load_and_transform_video(
         duration = video.duration
         start_sec = clip_start_sec  # secs
         end_sec = clip_end_sec if clip_end_sec is not None else duration  # secs
-        video_data = video.get_clip(start_sec=start_sec, end_sec=end_sec)
+        video_data = video.get_clip(start_sec=start_sec, end_sec=end_sec).get('video')
         video_outputs = transform(video_data)
 
     elif video_decode_backend == 'decord':
